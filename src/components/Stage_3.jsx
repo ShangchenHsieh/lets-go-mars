@@ -4,6 +4,7 @@ import "./Component.css";
 
 const Stage_3 = ({ userInfo, setUserInfo }) => {
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState("");  // State for success message
     const navigate = useNavigate();
 
     // Regex for validating phone number and emergency contact fields
@@ -30,11 +31,14 @@ const Stage_3 = ({ userInfo, setUserInfo }) => {
         return Object.keys(newErrors).length === 0;
     };
 
-    // Handle submit
+
     const handleSubmit = () => {
         if (validate()) {
+
+            // log userInfo to console, can be replaced with a POST api call
             console.log(userInfo);
-            // Submit the form (e.g., send to an API or show confirmation)
+            setSuccessMessage("Application submitted successfully!");
+
         }
     };
 
@@ -80,6 +84,9 @@ const Stage_3 = ({ userInfo, setUserInfo }) => {
                         />
                         {errors.medical && <p className="error-text">{errors.medical}</p>}
                     </div>
+
+
+                    {successMessage && <p className="success-message">{successMessage}</p>}
 
                     <div className="form-actions">
                         <button
