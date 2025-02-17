@@ -16,7 +16,7 @@ const Stage_3 = ({ userInfo, setUserInfo }) => {
         const newErrors = {};
 
         if (!userInfo.healthDeclaration) {
-            newErrors.healthDeclaration = "This field is required.";
+            newErrors.healthDeclaration = "This field is required."; { successMessage && <p className="success-message">{successMessage}</p> }
         }
 
         if (!userInfo.emergencyContact || !phoneRegex.test(userInfo.emergencyContact)) {
